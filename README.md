@@ -7,3 +7,12 @@ The REST API must support four endpoint:
   * **List IP addresses** - return all IP addresses in the system with their current status
   * **Acquire an IP** - set the status of a certain IP to “acquired”
   * **Release an IP** - set the status of a certain IP to “available”
+
+
+ curl -d '{"ipaddress":"10.0.0.1"}' -H "Content-Type: application/json" -X POST "http://127.0.0.1:5000/release"
+
+curl -d '{"ipaddress":"10.0.0.1"}' -H "Content-Type: application/json" -X POST "http://127.0.0.1:5000/acquire"
+
+curl -X GET "http://127.0.0.1:5000/ipaddresses"
+
+
