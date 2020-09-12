@@ -9,10 +9,14 @@ The REST API must support four endpoint:
   * **Release an IP** - set the status of a certain IP to “available”
 
 
+Curl commands to test the end points: 
+
  curl -d '{"ipaddress":"10.0.0.1"}' -H "Content-Type: application/json" -X POST "http://127.0.0.1:5000/release"
 
 curl -d '{"ipaddress":"10.0.0.1"}' -H "Content-Type: application/json" -X POST "http://127.0.0.1:5000/acquire"
 
 curl -X GET "http://127.0.0.1:5000/ipaddresses"
+
+curl -d '{"block": "10.0.0.5/8"}' -H "Content-Type: application/json" -X POST "http://127.0.0.1:5000/ipaddresses"
 
 

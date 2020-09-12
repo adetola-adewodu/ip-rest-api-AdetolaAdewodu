@@ -15,7 +15,14 @@ def get_all_networks():
         return jsonify(ipaddresses)
     if request.method == "POST":
         data = request.json
-        ipaddresses.update(data)
+        ip_parts = data['block'].split("/")
+        ip = ip_parts[0]
+        ip.split(".")[3]
+        ip_prefix =  ".".join(ip.split(".")[0:3])
+        for number in range(int(ip.split(".")[3]), int(ip_parts[1])+1):
+            ip_address = "{}.{}".format(ip_prefix, number)
+            print(ip_address)
+            ipaddresses.update({ip_address: ''})
         return jsonify(ipaddresses), 201
 
 @app.route('/release', methods=['POST'])
