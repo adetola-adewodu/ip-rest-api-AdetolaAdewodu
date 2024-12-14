@@ -1,7 +1,13 @@
 from flask import Flask, Response, request, jsonify, abort
 import json
 
-app = Flask(__name__)
+from flask_openapi3 import Info, Tag
+from flask_openapi3 import OpenAPI
+
+info = Info(title="Ip Address API", version="1.0.0")
+app = OpenAPI(__name__, info=info)
+
+# app = Flask(__name__)
 ipaddresses = {
     '10.0.0.1': '', 
     '10.0.0.2': '', 

@@ -1,0 +1,11 @@
+.vscode/
+env/
+.env
+venv/
+.venv
+.DS_Store
+__pycache__/
+.coverage
+htmlcov/
+cosign.*
+key.pub

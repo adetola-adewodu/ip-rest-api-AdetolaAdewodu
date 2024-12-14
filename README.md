@@ -8,6 +8,9 @@ The REST API must support four endpoint:
   * **Acquire an IP** - set the status of a certain IP to “acquired”
   * **Release an IP** - set the status of a certain IP to “available”
 
+## Create requirements.txt with required packages
+  pip freeze > requirements.txt
+
 ## install packages
   pip install -r requirements.txt
 
