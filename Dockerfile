@@ -14,8 +14,6 @@ COPY . .
 # Expose the port the Flask app will run on
 EXPOSE 5000
 
-# Set an environment variable for Flask
-ENV FLASK_APP=app.py 
 
 # Run the Flask app
-CMD ["flask", "run", "--host=0.0.0.0"]
+CMD ["python", "app.py"]

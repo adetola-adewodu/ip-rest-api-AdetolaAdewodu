@@ -4,6 +4,7 @@ blinker==1.9.0
 click==8.1.7
 Flask==3.1.0
 flask-openapi3==4.0.3
+flask-openapi3-redoc==2.2.0
 flask-openapi3-swagger==5.18.2
 itsdangerous==2.2.0
 Jinja2==3.1.4
