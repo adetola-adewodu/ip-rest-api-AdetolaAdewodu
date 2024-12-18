@@ -17,6 +17,14 @@ The REST API must support four endpoint:
 ## run application
   python app.py
 
+## Create docker image
+  docker build -t ip-rest-api .
+
+## Run image as container
+
+  docker run --name broadleaf-python-server -p 5000:5000 ip-rest-api
+
+
 ## Curl commands to test the end points: 
 
   curl -d '{"ipaddress":"10.0.0.1"}' -H "Content-Type: application/json" -X POST "http://127.0.0.1:5000/release"
