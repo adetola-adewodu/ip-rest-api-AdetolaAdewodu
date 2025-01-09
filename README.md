@@ -8,6 +8,12 @@ The REST API must support four endpoint:
   * **Acquire an IP** - set the status of a certain IP to “acquired”
   * **Release an IP** - set the status of a certain IP to “available”
 
+## Set up environment
+1. `python3 -m venv env`
+2. `source env/bin/activate`
+3. `python -m pip install --upgrade pip`
+4. `pip install -r requirements.txt`
+
 ## Create requirements.txt with required packages
   pip freeze > requirements.txt
 
@@ -17,22 +23,26 @@ The REST API must support four endpoint:
 ## run application
   python app.py
 
+# run application on host 0.0.0.0 and port 80
+
+flask run --host 0.0.0.0 --port 80
+
 ## Create docker image
   docker build -t ip-rest-api .
 
 ## Run image as container
 
-  docker run --name broadleaf-python-server -p 5000:5000 ip-rest-api
+  docker run -d -p 80:80 ip-rest-api
 
 
 ## Curl commands to test the end points: 
 
-  curl -d '{"ipaddress":"10.0.0.1"}' -H "Content-Type: application/json" -X POST "http://127.0.0.1:5000/release"
+  curl -d '{"ipaddress":"10.0.0.1"}' -H "Content-Type: application/json" -X POST "http://127.0.0.1:80/release"
 
-  curl -d '{"ipaddress":"10.0.0.1"}' -H "Content-Type: application/json" -X POST "http://127.0.0.1:5000/acquire"
+  curl -d '{"ipaddress":"10.0.0.1"}' -H "Content-Type: application/json" -X POST "http://127.0.0.1:80/acquire"
 
-  curl -X GET "http://127.0.0.1:5000/ipaddresses"
+  curl -X GET "http://127.0.0.1:80/ipaddresses"
 
-  curl -d '{"block": "10.0.0.5/8"}' -H "Content-Type: application/json" -X POST "http://127.0.0.1:5000/ipaddresses"
+  curl -d '{"block": "10.0.0.5/8"}' -H "Content-Type: application/json" -X POST "http://127.0.0.1:80/ipaddresses"
 
 
